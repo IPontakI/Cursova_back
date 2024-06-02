@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import { getAll } from './newsController.js'
 
 mongoose
-  .connect(process.env.mongoDB)
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('DB OK')
   })
