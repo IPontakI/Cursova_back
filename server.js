@@ -4,9 +4,7 @@ import mongoose from 'mongoose'
 import { getAll } from './newsController.js'
 
 mongoose
-  .connect(
-    'mongodb+srv://pontak:hFC1UfyODqWTIAFq@pontakcluster.oduaalz.mongodb.net/FukBase?retryWrites=true&w=majority'
-  )
+  .connect()
   .then(() => {
     console.log('DB OK')
   })
@@ -23,6 +21,6 @@ app.get('/', (req, res) => {
 
 app.get('/posts', getAll)
 
-app.listen(8081, () => {
+app.listen(process.env.PORT || 8081, () => {
   console.log('listening')
 })
