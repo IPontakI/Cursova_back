@@ -4,7 +4,9 @@ import mongoose from 'mongoose'
 import { getAll } from './newsController.js'
 
 mongoose
-  .connect('')
+  .connect(
+    'mongodb+srv://pontak:hFC1UfyODqWTIAFq@pontakcluster.oduaalz.mongodb.net/FukBase?retryWrites=true&w=majority'
+  )
   .then(() => {
     console.log('DB OK')
   })
@@ -13,6 +15,7 @@ mongoose
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use('/assets', express.static('assets'))
 
 app.get('/', (req, res) => {
   return res.json('Privit')
